@@ -2,7 +2,7 @@ name: compliance-check
 
 on:
   repository_dispatch:
-    types: [org-workflow-bot]  # <-- requirement to trigger central workflows
+    types: [org-workflow-bot]  ## <-- requirement to trigger central workflows
 jobs:
   register-and-lint:
     runs-on: ubuntu-latest
