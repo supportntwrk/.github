@@ -2,12 +2,12 @@ name: compliance-check
 
 on:
   repository_dispatch:
-    types: [org-workflow-bot]  ## <-- requirement to trigger central workflows
+    types: [org-workflow-bot]  # <-- requirement to trigger central workflows
 jobs:
   register-and-lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: SvanBoxel/organization-workflow@main
+    - uses: supportntwrk/ntwrk_dev@main
       with:
         id: ${{ github.event.client_payload.id }}
         callback_url: ${{ github.event.client_payload.callback_url }}
