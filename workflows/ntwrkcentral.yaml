@@ -7,12 +7,16 @@ jobs:
   register-and-lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: supportntwrk/ntwrk_dev@main
+    - uses: SvanBoxel/organization-workflow@main
       with:
         id: ${{ github.event.client_payload.id }}
         callback_url: ${{ github.event.client_payload.callback_url }}
         sha: ${{ github.event.client_payload.sha }}
         run_id: ${{ github.run_id }}
         name: ${{ github.workflow }} # Default: name of workflow. This name is shown with the check, but can be changed.
-
-# ... the checks and jobs that need to happen in your workflow.
+    - uses: actions/checkout@v2
+    - name: Find String
+      uses: nguyenvanuyn96/str-find-action@master
+      with:
+        find: "1234567890.dkr.ecr.us-east-1.amazonaws.com"
+        include: "*Dockerfile*" # Will match all README.md files in any nested directory
