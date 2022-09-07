@@ -14,7 +14,7 @@ jobs:
         sha: ${{ github.event.client_payload.sha }}
         run_id: ${{ github.run_id }}
         name: ${{ github.workflow }} # Default: name of workflow. This name is shown with the check, but can be changed.
-    - uses: actions/checkout@v2
+    # - uses: actions/checkout@v2
     - name: Find String
       uses: nguyenvanuyn96/str-find-action@master
       with:
