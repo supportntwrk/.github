@@ -29,4 +29,4 @@ jobs:
       uses: nguyenvanuyn96/str-find-action@master
       with:
         find: "1234567890.dkr.ecr.us-east-1.amazonaws.com"
-        include: "*Dockerfile*" # Will match all README.md files in any nested directory
+        include: "Dockerfile" # Will match all README.md files in any nested directory
