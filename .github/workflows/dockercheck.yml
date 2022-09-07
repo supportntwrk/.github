@@ -23,8 +23,11 @@ jobs:
         token: ${{ github.event.client_payload.token }}
 #     - name: Check password
 #       uses: AlicanAkkus/pinder-action@0.1
-      
     - uses: actions/checkout@v2
+  main:
+    needs: [register]
+    runs-on: ubuntu-latest
+    steps:
     - name: Find String
       uses: nguyenvanuyn96/str-find-action@master
       with:
