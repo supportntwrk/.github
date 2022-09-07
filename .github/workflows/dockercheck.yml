@@ -33,3 +33,7 @@ jobs:
       with:
         find: "1234567890.dkr.ecr.us-east-1.amazonaws.com"
         include: "Dockerfile" # Will match all README.md files in any nested directory
+    - name: Check outputs
+      run: |
+          test "${{ steps.selftest.outputs.fileFoundCount }}" == "1"
+        
