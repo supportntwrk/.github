@@ -1,0 +1,9 @@
+name: test
+on: [push] 
+jobs:
+    runscript:
+      name: Example
+      runs-on: ubuntu-latest
+      steps:
+        - name: Call a Bash Script
+          run: bash ${GITHUB_WORKSPACE}/.github/org.sh
