@@ -1,4 +1,4 @@
-name: Check for passwords
+name: bash check
 
 on:
   repository_dispatch:
