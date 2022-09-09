@@ -5,5 +5,9 @@ jobs:
       name: Example
       runs-on: ubuntu-latest
       steps:
-        - name: Call a Bash Script
-          run: bash org.sh
+        - name: list docerfile directories
+          run: find . -iname "*dockerfile*" -exec ls -l {} \;
+          shell: bash
+        - name: list docerfile directories
+          run: find . -iname "*dockerfile*" -exec ls -l {} \;  |  awk '{print $NF}' | awk -F"/" '{print $NF}'
+          shell: bash
