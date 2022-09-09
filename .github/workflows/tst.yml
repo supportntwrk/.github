@@ -7,7 +7,7 @@ jobs:
       steps:
         - name: list docerfile directories
           run:
-             bash $(find . -iname "*dockerfile*" -exec ls -l {} \;)
+             bash echo $(find . -iname "*dockerfile*" -exec ls -l {} \;)
           
         - name: list docerfile directories
           run: echo $(find . -iname "*dockerfile*" -exec ls -l {} \;  |  awk '{print $NF}' | awk -F"/" '{print $NF}')
