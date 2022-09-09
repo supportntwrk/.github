@@ -2,6 +2,7 @@
 #!/bin/bash/
 
 ECR_PREFIX="498031324058.dkr.ecr.us-east-1.amazonaws.com"
+find . -iname "*dockerfile*" -exec ls -l {} \;  |  awk '{print $NF}'
 
 for path in $(find . -iname "*dockerfile*" -exec ls -l {} \;  |  awk '{print $NF}')
 do
