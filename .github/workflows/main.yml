@@ -1,4 +1,4 @@
-Name: Validate ECR Address from docker file
+name: Validate ECR Address from docker file
 on: [push]
 
 jobs: 
