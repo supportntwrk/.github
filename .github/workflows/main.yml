@@ -19,20 +19,21 @@ jobs:
         name: ${{ github.workflow }}
         enforce: true
         documentation: "ony-org.sh"
-
-  main:
-    needs: [register]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Self
-      uses: actions/checkout@v2.3.4
-    - name: Checkout Member
-      uses: actions/checkout@v2.3.4
-      with:
-        repository: ${{ github.event.client_payload.repository.full_name }}
-        ref: ${{ github.event.client_payload.sha }}
-        token: ${{ github.event.client_payload.token }}
-    - name: checking env 
-      run: ls -laR /home/runner/work/
-    - name: Validate dockerfile base address
-      run: bash -x ony-org.sh   
+    - name: list files
+      run: ls -laR 
+  # main:
+  #   needs: [register]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Checkout Self
+  #     uses: actions/checkout@v2.3.4
+  #   - name: Checkout Member
+  #     uses: actions/checkout@v2.3.4
+  #     with:
+  #       repository: ${{ github.event.client_payload.repository.full_name }}
+  #       ref: ${{ github.event.client_payload.sha }}
+  #       token: ${{ github.event.client_payload.token }}
+  #   - name: checking env 
+  #     run: ls -laR /home/runner/work/
+  #   - name: Validate dockerfile base address
+  #     run: bash -x ony-org.sh   
