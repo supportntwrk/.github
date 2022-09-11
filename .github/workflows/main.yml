@@ -1,8 +1,12 @@
 name: Validate ECR Address from docker file
-#on: [push]
+# on: [push]
+# on:
 on:
+  pull_request:
+    branches:
+      - main
   repository_dispatch:
-    types: [org-workflow-bot, pull_request]  
+    types: [org-workflow-bot]  
    
 jobs:
   register:
