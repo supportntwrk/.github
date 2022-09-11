@@ -5,8 +5,8 @@ on:
       
   repository_dispatch:
     types: [org-workflow-bot]  
-env:
-  ECR_PREFIX: "498031324058.dkr.ecr.us-east-1.amazonaws.com"
+# env:
+#   ECR_PREFIX: "498031324058.dkr.ecr.us-east-1.amazonaws.com"
 
 jobs:
   register:
@@ -26,17 +26,28 @@ jobs:
     needs: [register]
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Self
+    #- name: Checkout Self
       # uses: actions/checkout@v2.3.4
-      run: echo "{supportntwrk/.github/ony-org.sh}" >> $GITHUB_PATH
+      run: cp ony-org.sh ecr-checker.sh
+    - name: Upload checker file
+      uses: actions/upload-artifact@v3
+        with:
+          name: checker-file
+          path: ecr-checker.sh
+       # echo "{supportntwrk/.github/ony-org.sh" >> $GITHUB_ENV
     - name: Checkout Member
       uses: actions/checkout@v2.3.4
       with:
         repository: ${{ github.event.client_payload.repository.full_name }}
         ref: ${{ github.event.client_payload.sha }}
         token: ${{ github.event.client_payload.token }}
-    - name: Validate dockerfile base address
-      run: bash -x $GITHUB_PATH
+   - name: Download a checker file
+      uses: actions/download-artifact@v3
+        with:
+          name: checker-file
+      run: ls -laR
+    # - name: Validate dockerfile base address
+    #   run: bash -x $GITHUB_ENV
       
       
       # |
