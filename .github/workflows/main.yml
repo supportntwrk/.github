@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Self
-      uses: actions/checkout@v2.3.4
+      # uses: actions/checkout@v2.3.4
       run: echo "supportntwrk/.github/ony-org.sh" >> $GITHUB_ENV
     - name: Checkout Member
       uses: actions/checkout@v2.3.4
