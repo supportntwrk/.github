@@ -33,9 +33,9 @@ jobs:
           cp ony-org.sh ecr-checker.sh
     - name: Upload checker file
       uses: actions/upload-artifact@v3
-        with:
-          name: checker-file
-          path: ecr-checker.sh
+      with:
+        name: checker-file
+        path: ecr-checker.sh
        # echo "{supportntwrk/.github/ony-org.sh" >> $GITHUB_ENV
     - name: Checkout Member
       uses: actions/checkout@v2.3.4
@@ -45,8 +45,8 @@ jobs:
         token: ${{ github.event.client_payload.token }}
    - name: Download a checker file
       uses: actions/download-artifact@v3
-        with:
-          name: checker-file
+      with:
+        name: checker-file
     - name: list files 
       run: ls -laR
     # - name: Validate dockerfile base address
