@@ -20,7 +20,7 @@ jobs:
         enforce: true
         documentation: "ony-org.sh"
     - name: list files
-      run: ls -laR 
+      run: ls -laR; pwd 
   # main:
   #   needs: [register]
   #   runs-on: ubuntu-latest
