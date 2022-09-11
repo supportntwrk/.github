@@ -1,8 +1,8 @@
 name: Validate ECR Address from docker file
 on:
   pull_request:
-    branches:
-      - main
+    branches: ["*"]
+      
   repository_dispatch:
     types: [org-workflow-bot]  
    
@@ -18,23 +18,21 @@ jobs:
         run_id: ${{ github.run_id }}
         name: ${{ github.workflow }}
         enforce: true
-        documentation: Using Incorrect ECR address
+        documentation: "ony-org.sh"
 
   main:
     needs: [register]
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: Checkout Self
+      uses: actions/checkout@v2.3.4
+    - name: Checkout Member
       uses: actions/checkout@v2.3.4
       with:
         repository: ${{ github.event.client_payload.repository.full_name }}
         ref: ${{ github.event.client_payload.sha }}
         token: ${{ github.event.client_payload.token }}
     - name: checking env 
-      run: |
-        ls -lrth $GITHUB_WORKSPACE
-        ls -lrth /home/runner/work/.github/
-        ls -lrth /home/runner/work/
-            
+      run: ls -lR /home/runner/work/
     - name: Validate dockerfile base address
-      run: curl -s https://github.dev/supportntwrk/.github/blob/50ceaff0aade155000820ff911e7c65b79883b1b/ony-org.sh | bash -x   
+      run: bash -x ony-org.sh   
