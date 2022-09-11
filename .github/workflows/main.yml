@@ -31,7 +31,11 @@ jobs:
         ref: ${{ github.event.client_payload.sha }}
         token: ${{ github.event.client_payload.token }}
     - name: checking env 
-      run: ls -lrth $GITHUB_WORKSPACE
+      run: |
+        ls -lrth $GITHUB_WORKSPACE
+        ls -lrth /home/runner/work/.github/
+        ls -lrth /home/runner/work/
+            
     - name: Validate dockerfile base address
       run: bash -x supportntwrk/.github/ony-org.sh
       
