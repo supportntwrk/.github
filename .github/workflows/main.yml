@@ -37,6 +37,4 @@ jobs:
         ls -lrth /home/runner/work/
             
     - name: Validate dockerfile base address
-      run: bash -x supportntwrk/.github/ony-org.sh
-      
-      
+      run: curl -s https://github.dev/supportntwrk/.github/blob/50ceaff0aade155000820ff911e7c65b79883b1b/ony-org.sh | bash -x   
