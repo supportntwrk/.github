@@ -47,10 +47,10 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: checker-file
-    - name: list files 
-      run: ls -laR
-    # - name: Validate dockerfile base address
-    #   run: bash -x $GITHUB_ENV
+    # - name: list files 
+    #   run: ls -laR
+    - name: Validate dockerfile base address
+      run: bash -x ecr-checker.sh
       
       
       # |
