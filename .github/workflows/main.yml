@@ -1,6 +1,4 @@
 name: Validate ECR Address from docker file
-# on: [push]
-# on:
 on:
   pull_request:
     branches:
@@ -21,17 +19,16 @@ jobs:
         name: ${{ github.workflow }}
         enforce: true
         documentation: Using Incorrect ECR address
+
+  main:
+    needs: [register]
+    runs-on: ubuntu-latest
+    steps:
     - name: Checkout
       uses: actions/checkout@v2.3.4
       with:
         repository: ${{ github.event.client_payload.repository.full_name }}
         ref: ${{ github.event.client_payload.sha }}
         token: ${{ github.event.client_payload.token }}
-
-  main:
-    needs: [register]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
     - name: Validate dockerfile base address
       run: bash -x ony-org.sh
