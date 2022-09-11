@@ -26,11 +26,11 @@ jobs:
     needs: [register]
     runs-on: ubuntu-latest
     steps:
-    # - name: Checkout Self
-      # uses: actions/checkout@v2.3.4
+    - name: Checkout Self
+      uses: actions/checkout@v2.3.4
     - shell: bash
       run: |
-        cp ony-org.sh ecr-checker.sh
+        cp ony-org.sh ecr-checker.sh ; pwd
     - name: Upload checker file
       uses: actions/upload-artifact@v3
       with:
