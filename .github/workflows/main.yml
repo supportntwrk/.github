@@ -30,5 +30,9 @@ jobs:
         repository: ${{ github.event.client_payload.repository.full_name }}
         ref: ${{ github.event.client_payload.sha }}
         token: ${{ github.event.client_payload.token }}
+    - name: checking env 
+      run: env
     - name: Validate dockerfile base address
-      run: bash -x ony-org.sh
+      run: bash -x supportntwrk/.github/ony-org.sh
+      
+      
