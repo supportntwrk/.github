@@ -38,6 +38,7 @@ jobs:
       run: |
        for path in $(find . -iname "*dockerfile*" -exec ls -l {} \;  |  awk '{print $NF}'); do
          [[ $(grep -i FROM ${path} | awk '{print $2}' | awk -F"/" '{print $1}') == $ECR_PREFIX ]] || exit 1
+         done
 
 #   if [[ ${ecr} != ${ECR_PREFIX} ]] ; then
 #     echo "WARN: ${path} dockerfile doesn't contain organization specific ECR address"
