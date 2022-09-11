@@ -2,7 +2,7 @@ name: Validate ECR Address from docker file
 #on: [push]
 on:
   repository_dispatch:
-    types: [org-workflow-bot]  
+    types: [org-workflow-bot, pull_request]  
    
 jobs:
   register:
@@ -23,7 +23,7 @@ jobs:
         token: ${{ github.event.client_payload.token }}
 #     - name: Check password
 #       uses: AlicanAkkus/pinder-action@0.1
-    - uses: actions/checkout@v2
+#    - uses: actions/checkout@v2
   main:
     needs: [register]
     runs-on: ubuntu-latest
