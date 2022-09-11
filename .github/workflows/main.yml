@@ -30,12 +30,12 @@ jobs:
       uses: actions/checkout@v2.3.4
     - shell: bash
       run: |
-        cp ony-org.sh ecr-checker.sh ; pwd
+        cp ony-org.sh ecr-address-checker.sh
     - name: Upload checker file
       uses: actions/upload-artifact@v3
       with:
         name: checker-file
-        path: ecr-checker.sh
+        path: ecr-address-checker.sh
        # echo "{supportntwrk/.github/ony-org.sh" >> $GITHUB_ENV
     - name: Checkout Member
       uses: actions/checkout@v2.3.4
@@ -50,7 +50,7 @@ jobs:
     # - name: list files 
     #   run: ls -laR
     - name: Validate dockerfile base address
-      run: bash -x ecr-checker.sh
+      run: bash -x ecr-address-checker.sh
       
       
       # |

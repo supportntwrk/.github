@@ -26,6 +26,3 @@ if [[ -s ${DOCKERFILE_LIST} ]]; then
   exit 1
 fi
 
-
-for path in $(find . -iname "*dockerfile*" -exec ls -l {} \;  |  awk '{print $NF}'); do
-  [[ $(grep FROM ./Dockerfile | awk '{print $2}' | awk -F"/" '{print $1}') == "498031324058.dkr.ecr.us-east-1.amazonaws.com" ]] || exit
