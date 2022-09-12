@@ -1,4 +1,4 @@
-name: Validate ECR Address from docker file
+name: Validate ECR Address from Dockerfile
 on:
   pull_request:
     branches: ["*"]
