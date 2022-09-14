@@ -1,8 +1,5 @@
 name: Validate ECR Address from Dockerfile
-on:
-  pull_request:
-    branches: ["*"]
-      
+on:  
   repository_dispatch:
     types: [org-workflow-bot]  
 
