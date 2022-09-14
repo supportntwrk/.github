@@ -4,7 +4,6 @@
 ECR_PREFIX="498031324058.dkr.ecr.us-east-1.amazonaws.com"
 DOCKERFILE_LIST="incorrect-ecr-docker-files.txt"
 
-env
 
 > ${DOCKERFILE_LIST}
 
