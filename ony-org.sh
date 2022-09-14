@@ -19,7 +19,8 @@ do
     echo "INFO: You can merge your PR against your base branch"
   fi
 done
-
+# opening file to see which docker files and under which branch it has been filtered
+cat ${DOCKERFILE_LIST}
 if [[ -s ${DOCKERFILE_LIST} ]]; then
   echo "ERROR: Following docker file(s) doesn't contain organization certified ECR address."
   cat ${DOCKERFILE_LIST}
